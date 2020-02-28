@@ -1,0 +1,93 @@
+
+Showing logs for build [32mjenkins-x-versions-bot-test-bdd-cf5bp-1[0m stage [32mfrom-build-pack[0m and container [32mstep-credential-initializer-lchd5[0m
+{"level":"warn","ts":1582899811.7044675,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/0.8.0-**-support-backwards-incompats\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1582899811.7048264,"logger":"fallback-logger","caller":"creds-init/main.go:40","msg":"Credentials initialized."}
+
+Showing logs for build [32mjenkins-x-versions-bot-test-bdd-cf5bp-1[0m stage [32mfrom-build-pack[0m and container [32mstep-working-dir-initializer-zzvfb[0m
+{"level":"warn","ts":1582899812.3856053,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: open /var/run/ko/HEAD: no such file or directory"}
+{"level":"info","ts":1582899812.386374,"logger":"fallback-logger","caller":"bash/main.go:64","msg":"Successfully executed command \"sh -c mkdir -p /workspace/source\"; output "}
+
+Showing logs for build [32mjenkins-x-versions-bot-test-bdd-cf5bp-1[0m stage [32mfrom-build-pack[0m and container [32mstep-place-tools[0m
+
+Showing logs for build [32mjenkins-x-versions-bot-test-bdd-cf5bp-1[0m stage [32mfrom-build-pack[0m and container [32mstep-git-source-jenkins-x-versions-bot-test-bdd-cf5bp-ll2nx[0m
+{"level":"warn","ts":1582899818.5140996,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/0.8.0-**-support-backwards-incompats\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1582899819.5498934,"logger":"fallback-logger","caller":"git/git.go:103","msg":"Successfully cloned https://github.com/***************************/bdd-gh-1582899442.git @ master in path /workspace/source"}
+
+Showing logs for build [32mjenkins-x-versions-bot-test-bdd-cf5bp-1[0m stage [32mfrom-build-pack[0m and container [32mstep-git-merge[0m
+Using SHAs from PULL_REFS=master:5ddeb01df6684d69188a60ee43aad52157637845,1:5d51bae75f8fd901ebffbc4b6912e4c61fc74649
+DEBUG: LC_ALL=C JX_LOG_LEVEL=error git fetch origin --unshallow 5d51bae75f8fd901ebffbc4b6912e4c61fc74649: 5ddeb01df6684d69188a60ee43aad52157637845:
+DEBUG: ran git fetch --unshallow origin 5d51bae75f8fd901ebffbc4b6912e4c61fc74649: 5ddeb01df6684d69188a60ee43aad52157637845: in 
+DEBUG: LC_ALL=C JX_LOG_LEVEL=error git branch
+DEBUG: LC_ALL=C JX_LOG_LEVEL=error git checkout master
+DEBUG: ran git checkout master in 
+DEBUG: JX_LOG_LEVEL=error LC_ALL=C git reset --hard 5ddeb01df6684d69188a60ee43aad52157637845
+DEBUG: ran git reset --hard 5ddeb01df6684d69188a60ee43aad52157637845 in 
+DEBUG: LC_ALL=C JX_LOG_LEVEL=error git clean -fd .
+DEBUG: ran clean --force -d . in 
+DEBUG: LC_ALL=C JX_LOG_LEVEL=error git merge 5d51bae75f8fd901ebffbc4b6912e4c61fc74649
+DEBUG: ran git merge 5d51bae75f8fd901ebffbc4b6912e4c61fc74649 in 
+DEBUG: LC_ALL=C JX_LOG_LEVEL=error git log --format=%H%x1f%an%x1f%ae%x1f%cn%x1f%ce%x1f%s%n%b%x1e 5ddeb01df6684d69188a60ee43aad52157637845..HEAD
+Merged SHA 5d51bae75f8fd901ebffbc4b6912e4c61fc74649 with commit message 'My first PR commit' into base branch master
+
+Showing logs for build [32mjenkins-x-versions-bot-test-bdd-cf5bp-1[0m stage [32mfrom-build-pack[0m and container [32mstep-build-make-linux[0m
+CGO_ENABLED=0 GOOS=linux GOARCH=amd64 GO15VENDOREXPERIMENT=1 go build -ldflags '' -o bin/bdd-gh-1582899442 main.go
+
+Showing logs for build [32mjenkins-x-versions-bot-test-bdd-cf5bp-1[0m stage [32mfrom-build-pack[0m and container [32mstep-build-container-build[0m
+ERROR: logging before flag.Parse: E0228 14:23:47.931734      11 metadata.go:241] Failed to unmarshal scopes: invalid character 'h' looking for beginning of value
+[36mINFO[0m[0001] No base image, nothing to extract            
+[36mINFO[0m[0001] cmd: EXPOSE                                  
+[36mINFO[0m[0001] Adding exposed port: 8080/tcp                
+[36mINFO[0m[0001] Using files from context: [/workspace/source/bin] 
+[36mINFO[0m[0001] Skipping unpacking as no commands require it. 
+[36mINFO[0m[0001] Taking snapshot of full filesystem...        
+[36mINFO[0m[0001] EXPOSE 8080                                  
+[36mINFO[0m[0001] cmd: EXPOSE                                  
+[36mINFO[0m[0001] Adding exposed port: 8080/tcp                
+[36mINFO[0m[0001] No files changed in this command, skipping snapshotting. 
+[36mINFO[0m[0001] ENTRYPOINT ["/bdd-gh-1582899442"]            
+[36mINFO[0m[0001] No files changed in this command, skipping snapshotting. 
+[36mINFO[0m[0001] Using files from context: [/workspace/source/bin] 
+[36mINFO[0m[0001] COPY ./bin/ /                                
+[36mINFO[0m[0001] Taking snapshot of files...                  
+2020/02/28 14:23:51 pushed blob: sha256:cb3f0fc664ac7f28daf2332210c89e4963f3ff7b1982eb07016b283897e03f2f
+2020/02/28 14:23:52 pushed blob: sha256:49eed1256110bc1fbb7b6eb9eef43b703707e618fcbfd9200a0b0ee6f6ff6563
+2020/02/28 14:23:53 gcr.io/jenkins-x-bdd3/bdd-gh-1582899442:0.0.0-SNAPSHOT-PR-1-1: digest: sha256:cb3fa4a60539224dc1e3d926d333eb5406abb2bb6fa66d2fda25a14806f5f657 size: 428
+
+Showing logs for build [32mjenkins-x-versions-bot-test-bdd-cf5bp-1[0m stage [32mfrom-build-pack[0m and container [32mstep-postbuild-post-build[0m
+no CVE provider running in the current ** namespace so skip adding image to be analysed
+
+Showing logs for build [32mjenkins-x-versions-bot-test-bdd-cf5bp-1[0m stage [32mfrom-build-pack[0m and container [32mstep-promote-make-preview[0m
+sed -i -e "s/version:.*/version: 0.0.0-SNAPSHOT-PR-1-1/" Chart.yaml
+sed -i -e "s/version:.*/version: 0.0.0-SNAPSHOT-PR-1-1/" ../*/Chart.yaml
+sed -i -e "s|repository:.*|repository: gcr.io\/jenkins-x-bdd3\/bdd-gh-1582899442|" values.yaml
+sed -i -e "s/tag:.*/tag: 0.0.0-SNAPSHOT-PR-1-1/" values.yaml
+echo "  version: 0.0.0-SNAPSHOT-PR-1-1" >> requirements.yaml
+** step helm build
+WARNING: No $CHART_REPOSITORY defined so using the default value of: http://jenkins-x-chartmuseum:8080
+Adding missing Helm repo: storage.googleapis.com https://storage.googleapis.com/chartmuseum.jenkins-x.io
+Successfully added Helm repository storage.googleapis.com.
+Adding missing Helm repo: jenkins-x-chartmuseum http://jenkins-x-chartmuseum:8080
+Successfully added Helm repository jenkins-x-chartmuseum.
+WARNING: No $CHART_REPOSITORY defined so using the default value of: http://jenkins-x-chartmuseum:8080
+Adding missing Helm repo: chartmuseum.jenkins-x.io http://chartmuseum.jenkins-x.io
+Successfully added Helm repository chartmuseum.jenkins-x.io.
+
+Showing logs for build [32mjenkins-x-versions-bot-test-bdd-cf5bp-1[0m stage [32mfrom-build-pack[0m and container [32mstep-promote-jx-preview[0m
+Creating a preview
+Created environment ***************************-bdd-gh-1582899442-pr-1
+Namespace **-***************************-bdd-gh-1582899442-pr-1 created 
+expose:
+  Annotations:
+    helm.sh/hook: post-install,post-upgrade
+    helm.sh/hook-delete-policy: hook-succeeded
+  config:
+    domain: 146.148.10.225.nip.io
+    exposer: Ingress
+    http: "true"
+preview:
+  image:
+    repository: gcr.io/jenkins-x-bdd3/bdd-gh-1582899442
+    tag: 0.0.0-SNAPSHOT-PR-1-1
+
+Updating PipelineActivities ***************************-bdd-gh-1582899442-pr-1-1 which has status Running
+Preview application is now available at: http://bdd-gh-1582899442.**-***************************-bdd-gh-1582899442-pr-1.146.148.10.225.nip.io
